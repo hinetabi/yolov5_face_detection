@@ -29,6 +29,7 @@ def convert(size, box):
 
 
 def wider2face(root, phase='val', ignore_small=0):
+    phase = ''
     data = {}
     with open('{}/{}/label.txt'.format(root, phase), 'r') as f:
         lines = f.readlines()
@@ -61,7 +62,7 @@ if __name__ == '__main__':
         exit(1)
 
     root_path = sys.argv[1]
-    if not os.path.isfile(os.path.join(root_path, 'val', 'label.txt')):
+    if not os.path.isfile(os.path.join(root_path, 'label.txt')):
         print('Missing label.txt file.')
         exit(1)
 
