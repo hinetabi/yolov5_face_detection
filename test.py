@@ -279,6 +279,10 @@ def test(data,
         maps[c] = ap[i]
     return (mp, mr, map50, map, *(loss.cpu() / len(dataloader)).tolist()), maps, t
 
+def yolobbox2bbox(x,y,w,h):
+    x1, y1 = x-w/2, y-h/2
+    x2, y2 = x+w/2, y+h/2
+    return x1, y1, x2, y2
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(prog='test.py')
